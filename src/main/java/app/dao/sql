@@ -1,0 +1,1 @@
+INSERT INTO copilkadb.daytable (summ, date) VALUES (40, cast('2007-03-20' as datetime)); добавление даты
