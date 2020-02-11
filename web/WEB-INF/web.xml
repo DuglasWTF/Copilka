@@ -5,12 +5,12 @@
          version="4.0">
     <!-- add servlet -->
     <servlet>
-        <servlet-name>add</servlet-name>
+        <servlet-name>mainServl</servlet-name>
         <servlet-class>app.servlets.AddServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>add</servlet-name>
-        <url-pattern></url-pattern>
+        <servlet-name>mainServl</servlet-name>
+        <url-pattern>/views/mainServl</url-pattern>
     </servlet-mapping>
 </web-app>

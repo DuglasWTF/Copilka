@@ -15,6 +15,10 @@ public class DayTableModel {
         instance = new DayTableModel();
     }
 
+    public static DayTableModel getInstance() {
+        return instance;
+    }
+
     public DayTableModel() {
         this.dao = new DAO();
         this.actionList = new LinkedList<>();

@@ -1,29 +1,29 @@
 package app.entities;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 
 public class Action {
-    private Date date;
+    private String date;
     private BigDecimal sum;
     private String comment;
 
-    public Action(Date date, BigDecimal sum, String comment) {
+    public Action(String date, BigDecimal sum) {
         this.date = date;
         this.sum = sum;
+    }
+
+    public Action(String date, String sum, String comment) {
+        this.date = date;
+        this.sum = new BigDecimal(sum);
         this.comment = comment;
     }
 
-    public Action(Date date, BigDecimal sum) {
-        this.date = date;
-        this.sum = sum;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
