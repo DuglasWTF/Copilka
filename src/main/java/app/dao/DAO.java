@@ -19,9 +19,9 @@ public class DAO {
         String date = action.getDate();
         Calendar calendar = new GregorianCalendar();
         String[] chars = date.split("\\D");
-        calendar.set(Calendar.YEAR, Integer.parseInt(chars[2]));
+        calendar.set(Calendar.YEAR, Integer.parseInt(chars[0]));
         calendar.set(Calendar.MONTH, Integer.parseInt(chars[1])-1);
-        calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(chars[0]));
+        calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(chars[2]));
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(chars[3]));
         calendar.set(Calendar.MINUTE, Integer.parseInt(chars[4]));
 
@@ -34,7 +34,7 @@ public class DAO {
         String sql = "INSERT INTO copilkadb.daytable (date, summ, comment) VALUES (?,?,?);";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, new java.sql.Date(calendar.getTimeInMillis()));
+            preparedStatement.setDate(1, new java.sql.Date(calendar.getTimeInMillis()), calendar);
             preparedStatement.setBigDecimal(2, sum);
             preparedStatement.setString(3, comment);
             preparedStatement.executeUpdate();
