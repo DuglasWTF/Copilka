@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(urlPatterns = "/mainServl")
+@WebServlet(urlPatterns = "/add")
 public class AddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,13 +36,15 @@ public class AddServlet extends HttpServlet {
         }
         req.setAttribute("Dates", date);
         doGet(req, resp);
-       /* String path = "views/mainServl.jsp";
+ String path = "views/mainServl.jsp";
         ServletContext servletContext = getServletContext();
         RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
-        requestDispatcher.forward(req, resp);*/
+        requestDispatcher.forward(req, resp);
+
         //resp.sendRedirect();
-        /*req.setAttribute("Actions", action.toString());
-        doGet(req, resp);*/
+req.setAttribute("Actions", action.toString());
+        doGet(req, resp);
+
         System.out.println("Сработал doPost");
 
     }
