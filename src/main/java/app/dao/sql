@@ -1,1 +1,8 @@
 INSERT INTO copilkadb.daytable (summ, date) VALUES (40, cast('2007-03-20' as datetime)); добавление даты
+
+//получить сумму трат за указанный период
+SELECT SUM(daytable.summ), monthtable.startdate, monthtable.enddate
+FROM copilkadb.daytable
+LEFT JOIN copilkadb.monthtable
+ON daytable.date >= monthtable.startdate AND daytable.date <= monthtable.enddate
+GROUP BY monthtable.startdate;
